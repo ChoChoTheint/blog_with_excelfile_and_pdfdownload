@@ -9,6 +9,7 @@
 </head>
 <body> 
     <button class="btn btn-success"><a href="{{route('post.create')}}" class="text-white">Create</a></button>
+   
     <div class="row">
         <div class="col-12 ">
             <table class="table">
@@ -28,17 +29,23 @@
                         <td>{{$post->title}}</td>
                         <td>{{$post->description}}</td>
                         <td>{{$post->email}}</td>
-                        <td>{{$post->file}}</td>
+                        <!-- <td>{{$post->file}}</td> -->
+                        <td><img src="{{asset('storage/file/'.$post->file)}}" alt="image" height="130" width="150"></td>
                         <td>
                             <button class="btn btn-primary" name="edit"><a href="{{ route('post.edit', $post->title) }}" class="text-light" method="post">Edit</a></button>
                             <button class="btn btn-danger" name="delete"><a href="{{ route('post.delete', $post->title) }}" class="text-light " method="get">Delete</a></button>
+                            <button class="btn btn-warning" name="detail"><a href="{{ route('post.detail', $post->title) }}" class="text-light " method="get">Detail</a></button>
                         </td>
                     </tr>
                 </tbody>
+               
             @endforeach
                 </tr>
             </table>
         </div>
+    </div>
+    <div>
+        {{ $posts->links() }}
     </div>
 </body>
 </html>

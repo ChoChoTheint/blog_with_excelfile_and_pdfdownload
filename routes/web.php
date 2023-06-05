@@ -22,3 +22,6 @@ Route::post('/post/create','PostController@store')->name('post.store');
 Route::get('/post/edit/{title}','PostController@edit')->name('post.edit');
 Route::post('/post/edit/{title}','PostController@update')->name('post.update');
 Route::get('/post/delete/{title}','PostController@destory')->name('post.delete');
+Route::get('/post/detail/{title}','PostController@detail')->name('post.detail');
+// Route::get('/post/search','PostController@search')->name('post.search');
+Route::get('/download-pdf','FunController@document')->name('download-pdf');

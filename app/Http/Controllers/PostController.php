@@ -5,22 +5,24 @@ namespace App\Http\Controllers;
 use App\Post;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 use App\Http\Requests\PostSaveRequest;
 use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
    public function index() {
-   $posts = Post::all();
-   return view('post.index')->with(['posts' => $posts]);
+      $posts = Post::paginate(5);
+      return view('post.index')->with(['posts' => $posts]);
+
    }
    public function create() {
-    return view('post.create');
+      return view('post.create');
    }
    public function store(PostSaveRequest $request) {
         $file = $request->file('file');
         $name = Str::random(10);
-        $url = Storage::putFileAs('file', $file, $name . '.' . $file->extension());
+        $url = Storage::putFileAs('public/file', $file, $name . '.' . $file->extension());
    
       $val =Post::create([
          'title' => $request->input('title'),
@@ -51,4 +53,10 @@ class PostController extends Controller
       $posts->update();
       return redirect()->route('home');
    }
+   public function detail(Request $request,$title)
+   {  
+      $posts = Post::firstWhere('title',$title);
+      return view('post.detail',compact('posts'));
+   }
+
 }
