@@ -32,7 +32,7 @@
                 <input type="file" class="form-control" name="file" value="{{$posts->file}}">
                 <img src="{{asset('storage/file/'.$posts->file)}}" alt="image" height="300" width="300">
             </div>
-            <button type="submit">Submit</button>
+            <a href="{{route('home')}}"><button class="btn btn-success" type="submit">Submit</button></a>
         </form>
     </div>
 </body>

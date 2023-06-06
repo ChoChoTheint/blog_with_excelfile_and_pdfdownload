@@ -25,3 +25,7 @@ Route::get('/post/delete/{title}','PostController@destory')->name('post.delete')
 Route::get('/post/detail/{title}','PostController@detail')->name('post.detail');
 // Route::get('/post/search','PostController@search')->name('post.search');
 Route::get('/download-pdf','FunController@document')->name('download-pdf');
+
+Route::get('/export', 'DemoController@export')->name('export');
+Route::get('/importExportView', 'DemoController@importExportView');
+Route::post('import', 'DemoController@import')->name('import');

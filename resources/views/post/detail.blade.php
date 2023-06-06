@@ -28,10 +28,9 @@
             </div>
          
             <div>
-                <a href="{{ URL::previous() }}">
-                    <button class="btn btn-danger">Back</button>
-                </a>
+                <a href="{{ URL::previous() }}"><button class="btn btn-danger">Back</button></a>
                 <a href="{{ URL::to('download-pdf') }}"><button class="btn btn-success">Download PDF</button></a>
+                <a href="{{route('export')}}"><button class="btn btn-primary">Excel Download</button></a>
             </div>
     </div>
 </body>

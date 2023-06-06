@@ -23,12 +23,11 @@ class PostController extends Controller
         $file = $request->file('file');
         $name = Str::random(10);
         $url = Storage::putFileAs('public/file', $file, $name . '.' . $file->extension());
-   
-      $val =Post::create([
+        $val =Post::create([
          'title' => $request->input('title'),
          'description' => $request->input('description'),
          'email' => $request->input('email'),
-         'file' => env('APP_URL') . '/' . $url,
+         'file' =>  $url,
       ]);
       return redirect()->route('home');
    }
@@ -60,3 +59,5 @@ class PostController extends Controller
    }
 
 }
+// env('APP_URL') . '/' .
+// 'public/file', remove path

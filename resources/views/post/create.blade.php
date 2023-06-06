@@ -38,7 +38,7 @@
             <div class=" mb-3">
                 <input type="file" class="form-control" name="file">
             </div>
-            <button type="submit">Submit</button>
+            <a href=""><button type="submit" class="btn btn-success">Submit</button></a>
         </form>
     </div>
 </body>
