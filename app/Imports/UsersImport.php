@@ -19,5 +19,7 @@ class UsersImport implements ToModel
             'description'    => $row['description'],
             'email'    => $row['email'],
         ]);
+
+        
     }
 }
